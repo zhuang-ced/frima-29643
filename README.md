@@ -16,13 +16,15 @@ has_many :items :buys
 
 ## items テーブル
 
-| Column      | C    | Options        |
-|-------------------------------------|
-| image       | string  | null: false |
-| item_name   | string  | null: false |
-| explanation | text    | null: false |
-| detail      | text    | null: false |
-| price       | integer | null: false |
+| Column      | type    | Options           |
+|-------------------------------------------|
+| image       | string  | null: false       |
+| item_name   | string  | null: false       |
+| explanation | text    | null: false       |
+| detail      | text    | null: false       |
+| price       | integer | null: false       |
+| able_to_buy | boolean | foreign_key: true |
+| seller      | string  | null: false       |
 
 ### Association
 has_one :buy
@@ -31,12 +33,11 @@ belongs_to :user
 
 ## buys テーブル
 
-| Column        | Column  | Options      |
-|----------------------------------------|
-| credit_number | integer | null: false  |
-| expiration    | integer | null: false  |
-| security_code | integer | null: false  |
-| able_to_buy   | boolean |              |
+| Column        | Column  | Options           |
+|---------------------------------------------|
+| buyer         | integer | null: false       |
+| item          | string  | null: false       |
+| able_to_buy   | boolean | foreign_key: true |
 
 ### Association
 has_one :item
