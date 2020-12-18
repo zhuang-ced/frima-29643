@@ -58,5 +58,8 @@ group :development do
   gem 'rubocop', require: false
 end
 
+#deviseの導入
+gem 'devise'
+
 #active_hashの導入
 gem 'active_hash'
