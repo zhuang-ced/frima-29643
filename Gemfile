@@ -63,3 +63,4 @@ gem 'devise'
 
 #active_hashの導入
 gem 'active_hash'
+
