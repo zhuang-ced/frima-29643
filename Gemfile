@@ -48,6 +48,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  #rspecの導入
+  gem 'rspec-rails', '~>4.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -63,6 +65,3 @@ gem 'devise'
 
 #active_hashの導入
 gem 'active_hash'
-
-#pry-railsの導入
-gem 'pry-rails'
