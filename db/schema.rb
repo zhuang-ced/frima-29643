@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_12_18_041214) do
     t.string "encrypted_password", default: "", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "firstname_katakana", null: false
-    t.string "lastname_katakana", null: false
+    t.string "firstname_kana", null: false
+    t.string "lastname_kana", null: false
     t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
