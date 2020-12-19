@@ -50,6 +50,8 @@ group :test do
   gem 'webdrivers'
   #rspecの導入
   gem 'rspec-rails', '~>4.0.0'
+  #factory_bot_railsの導入
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -68,3 +70,5 @@ gem 'active_hash'
 
 #pry-railsの導入
 gem 'pry-rails'
+
+
