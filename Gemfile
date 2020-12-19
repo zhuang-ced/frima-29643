@@ -65,3 +65,6 @@ gem 'devise'
 
 #active_hashの導入
 gem 'active_hash'
+
+#pry-railsの導入
+gem 'pry-rails'
