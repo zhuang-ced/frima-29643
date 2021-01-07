@@ -22,6 +22,7 @@ has_many :items :buys
 
 | Column           | type       | Options           |
 |------------------|------------|-------------------|
+| item_image       | string     | null:false        |
 |      name        | string     | null: false       |
 | explanation      | text       | null: false       |
 | category_id      | integer    | null:false        |
