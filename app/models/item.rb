@@ -4,6 +4,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :status
   belongs_to_active_hash :delivery_fee
+  belongs_to_active_hash :shipping_area
+  belongs_to_active_hash :days_to_ship
   has_one_attached :image
 
   validates :image, :item_name, :explanation, :category, :status_id, :delivery_fee_id, :shipping_area_id, :days_to_ship_id, :price, presence: true
@@ -11,6 +13,6 @@ class Item < ApplicationRecord
   validates :explanation, length: { maximum: 1000}
 
   with_options numericality: {other_than: 1 } do
-    validates :category_id, :status_id, :category_id
+    validates :category_id, :status_id, :category_id, :delivery_fee_id, :shipping_area_id, :days_to_ship_id
   end
 end
