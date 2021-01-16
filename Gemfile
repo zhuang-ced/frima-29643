@@ -71,4 +71,8 @@ gem 'active_hash'
 #pry-railsの導入
 gem 'pry-rails'
 
+#MiniMagickの導入
+gem 'mini_magick'
 
+#ImageProcessingの導入
+gem 'image_processing', '~> 1.2'
