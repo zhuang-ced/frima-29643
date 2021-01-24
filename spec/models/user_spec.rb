@@ -6,9 +6,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザー新規登録' do
-    
-    context "ユーザーが保存できる場合" do
-      it "全ての値が正常であれば登録できる" do
+    context 'ユーザーが保存できる場合' do
+      it '全ての値が正常であれば登録できる' do
         expect(@user).to be_valid
       end
     end
@@ -44,7 +43,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
     end
-    it 'passwordは半角英数混同で無いと登録できない'do
+    it 'passwordは半角英数混同で無いと登録できない' do
       @user.password = 'aaaaaa'
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is invalid')
@@ -89,12 +88,12 @@ RSpec.describe User, type: :model do
     it 'last_nameのフリガナは全角（カタカナ）で無いと登録できない' do
       @user.lastname_kana = 'ああああ'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Lastname kana is invalid")
+      expect(@user.errors.full_messages).to include('Lastname kana is invalid')
     end
     it 'first_nameのフリガナは全角（カタカナ）で無いと登録できない' do
       @user.firstname_kana = 'ああああ'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Firstname kana is invalid")
+      expect(@user.errors.full_messages).to include('Firstname kana is invalid')
     end
     it 'birthdayが空では登録できない' do
       @user.birthday = ''
