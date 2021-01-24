@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
       :days_to_ship_id,
       :price,
       :user
-    )
+    ).merge(user_id: current_user.id)
     
   end
 end
