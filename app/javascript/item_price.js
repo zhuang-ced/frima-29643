@@ -9,6 +9,5 @@ window.addEventListener(`load`,() =>{
     const UserProfit = document.getElementById("profit");
     console.log(addTaxDom);
     UserProfit.innerHTML = Math.floor(priceInput.value * 0.9);
-    console.log(UserProfit);
   })
 });
