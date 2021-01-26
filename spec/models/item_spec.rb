@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
+  let(:user) { FactoryBot.create(:user) }
   before do
-    user = FactoryBot.create(:user)
     @item = FactoryBot.build(:item, user_id: user.id)
   end
 
@@ -12,6 +12,16 @@ RSpec.describe Item, type: :model do
     end
   end
   context 'itemが出品できないとき' do
+    it 'imageが空では出品できない' do
+      @item.image = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Image can't be blank")
+    end
+    it '商品にuserが紐付いていない場合は出品できない' do
+      @item.user_id = ''
+      @item.valid?
+      expect(@item.errors.full_messages).to include("User must exist")
+    end
     it 'item_nameが空では出品できない' do
       @item.item_name = ''
       @item.valid?
