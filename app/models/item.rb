@@ -8,13 +8,13 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days_to_ship
   has_one_attached :image
 
-  validates :image, :item_name, :explanation, :price, presence: true
-  validates :item_name, length: { maximum: 40 }
-  validates :explanation, length: { maximum: 1000 }
-  validates :price, numericality: { greater_than: 299 }
-  validates :price, numericality: { less_than: 10000000 }
-  validates :price, numericality: true
-
+  with_options presence: true do
+    validates :item_name, length: { maximum: 40 }
+    validates :explanation, length: { maximum: 1000 }
+    validates :price, numericality: { greater_than: 299 }
+    validates :price, numericality: { less_than: 10000000 }
+    validates :price, numericality: true
+  end
   with_options numericality: { other_than: 1 } do
     validates :category_id, :status_id, :category_id, :delivery_fee_id, :shipping_area_id, :days_to_ship_id
   end
