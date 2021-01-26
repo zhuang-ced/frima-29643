@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.string :image                      null: false
       t.string :item_name,                 null: false
-      t.string :explanation,               null: false
+      t.text :explanation,               null: false
       t.integer :category_id,              null: false
       t.integer :status_id,                null: false
       t.integer :delivery_fee_id,          null: false
