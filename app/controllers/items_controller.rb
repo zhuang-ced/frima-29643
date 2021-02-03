@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
-    # binding.pry
+    @items = Item.order("created_at DESC")
+    @item_number = Item.count
   end
+  
   def new
     @item = Item.new
   end
