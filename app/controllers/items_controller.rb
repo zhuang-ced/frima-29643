@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
     @items = Item.all
+    @item_number = Item.count
   end
   
   def new
