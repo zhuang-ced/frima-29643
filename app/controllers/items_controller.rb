@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # @item = Item.all(item_params)
   end
 
   private
