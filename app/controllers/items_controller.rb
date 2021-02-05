@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :user_status, only: [:edit, :update]
+  before_action :user_status, only: [:edit, :update, :destroy]
   def index
     @items = Item.order("created_at DESC")
     @item_number = Item.count
@@ -35,9 +35,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
     if @item.destroy
-      redirect_to items_path
+      redirect_to root_path
     else
       redirect_to item_path
     end
