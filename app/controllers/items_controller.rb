@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update]
+  before_action :user_status, only: [:edit, :update]
   def index
     @items = Item.order("created_at DESC")
     @item_number = Item.count
@@ -19,9 +21,18 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
+  end
   private
 
   def item_params
@@ -37,5 +48,15 @@ class ItemsController < ApplicationController
       :price,
       :user
     ).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def user_status
+    unless @item.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 end
