@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :days_to_ship
   has_one_attached :image
+  has_one :order
 
   with_options presence: true do
     validates :item_name, length: { maximum: 40 }
