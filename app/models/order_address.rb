@@ -8,6 +8,9 @@ class OrderAddress
     validates :house_number
     validates :telephone_number, numericality: {only_integer: true}
   end
+  with_options numericality: { other_than: 1 } do
+    validates :shipping_area_id
+ end
 
   def save
      order = Order.create!(user_id: user_id , item_id: item_id)
