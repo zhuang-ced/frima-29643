@@ -6,7 +6,7 @@ class OrderAddress
     validates :post_number, format: { with: /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}\z/}
     validates :city,  format: { with: /\A[ぁ-んァ-ン一-龥々]/}
     validates :house_number
-    validates :telephone_number, numericality: {only_integer: true}
+    validates :telephone_number, numericality: {only_integer: true}, length: {maximum: 12}
     validates :token
     validates :user_id
     validates :item_id
