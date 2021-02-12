@@ -38,7 +38,7 @@ has_one :buy
 belongs_to :user
 
 
-## buys テーブル
+## order テーブル
 
 | Column        | Column    | Options             |
 |---------------|-----------|---------------------|
@@ -56,7 +56,7 @@ has_one :address
 |------------------|------------|-------------------|
 | post_number      | string     | null: false       |
 | prefecture_id    | integer    | null: false       |
-| municipality     | string     | mull: false       |
+| city             | string     | mull: false       |
 | house_number     | string     | null: false       |
 | building_name    | string     |                   |
 | telephone_number | string     | null: false       |
