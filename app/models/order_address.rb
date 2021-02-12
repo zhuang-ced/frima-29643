@@ -8,6 +8,8 @@ class OrderAddress
     validates :house_number
     validates :telephone_number, numericality: {only_integer: true}
     validates :token
+    validates :user_id
+    validates :item_id
   end
   with_options numericality: { other_than: 1 } do
     validates :shipping_area_id
@@ -16,7 +18,7 @@ class OrderAddress
   def save
     
      order = Order.create(user_id: user_id , item_id: item_id)
-    Address.create!(post_number: post_number, shipping_area_id: shipping_area_id, city: city, house_number: house_number, building_name: building_name, telephone_number: telephone_number, order_id: order.id)
+    Address.create(post_number: post_number, shipping_area_id: shipping_area_id, city: city, house_number: house_number, building_name: building_name, telephone_number: telephone_number, order_id: order.id)
 
   end
 end
