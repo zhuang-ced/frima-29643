@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   has_one :order
 
   with_options presence: true do
-    validates :image
     validates :item_name, length: { maximum: 40 }
     validates :explanation, length: { maximum: 1000 }
     validates :price, numericality: { greater_than: 299 }
